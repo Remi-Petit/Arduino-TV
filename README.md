@@ -10,6 +10,9 @@ A savoir : Il y a deux types d'écrans :
 
 Il y a donc deux codes.
 
+# Projet de groupe
+C'est un projet qui a été donné au Fablab d'Orano. Il y avait donc les parties préparation du Arduino, développement des programmes, modélisation 3D et imprimante 3D pour accrocher le dispositif sur les télés et activer le mécanisme.
+
 # Ma contribution
 J'ai développé le programme.
 Je n'avais jamais fait de Arduino, c'est une bonne expérience.
