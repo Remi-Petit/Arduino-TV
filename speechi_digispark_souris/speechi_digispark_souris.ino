@@ -1,7 +1,7 @@
-#include <SimpleServo.h>
+#include <DigiMouse.h>
 
-int Capteur = 1;  //  le capteur PIR 
-int pinLED = 2; // Led
+int Capteur = 2;  //  le capteur PIR 
+int pinLED = 1; // Led
 bool premierMouvement = true;  //  suivre le premier mouvement détecté
 unsigned long tempsDernierMouvement = 0;  // Temps du dernier mouvement détecté
 
@@ -14,6 +14,9 @@ void setup() {
 void loop() {
   if (digitalRead(Capteur) == HIGH) {
     // Si le capteur détecte un mouvement
+    digitalWrite(pinLED, HIGH);
+
+    /*
     if (premierMouvement) {
       // Si c'est le premier mouvement détecté
       DigiMouse.moveX(60); // Mouvement de souris
@@ -28,10 +31,19 @@ void loop() {
       tempsDernierMouvement = millis();  // Enregistre le temps du dernier mouvement détecté
     } else {
       // Si un mouvement est détecté après le premier mouvement
-      servoMoteur.write(0);  // Arrête le servomoteur
       tempsDernierMouvement = millis();  // Enregistre le temps du dernier mouvement détecté
     }
-  } else if (!premierMouvement && millis() - tempsDernierMouvement >= 1 * 60 * 100) {
+    */
+  } 
+  
+  else {
+    digitalWrite(pinLED, LOW);
+  }
+  
+  
+  if (premierMouvement != true && millis() - tempsDernierMouvement >= 1) {
+    digitalWrite(pinLED, LOW);
+    delay(1000);
     // Si aucun mouvement n'est détecté pendant plus de 6 secs après le dernier mouvement
     premierMouvement = true;  // Réinitialise  pour le prochain premier mouvement
   }
